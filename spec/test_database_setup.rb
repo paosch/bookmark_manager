@@ -1,4 +1,4 @@
-p "Setting up test database..."
+#p "Setting up test database..."
 
 require 'pg'
 

@@ -3,18 +3,17 @@ require './lib/link'
 
 class BookmarkManager < Sinatra::Base
 get '/' do
-#p ENV # not concerned with the web app but with Sinatra settings. It prints variable in Terminal after I do rackup config.ru
-  # @links = [
-  #   "https://www.google.co.uk",
-  #   "http://www.bbc.co.uk/news",
-  #   "http://www.pitchero.com/clubs/dulwichhamlet"
-  #]
   @links = Link.all
   erb :index
 end
 
-get '/add-url' do
-  erb :add_url
+get '/add-a-new-link' do # needed this route to go to the add-url page when Add button was clicked
+  erb :add_link # staying in this route until I click something to go to another page
+end
+
+post '/create-new-link' do # the / mentioned here is not a page!
+  Link.add_link(url: params['url'])
+  redirect '/'
 end
 
 run! if app_file == $0
