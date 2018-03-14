@@ -13,5 +13,9 @@ get '/' do
   erb :index
 end
 
+get '/add-url' do
+  erb :add_url
+end
+
 run! if app_file == $0
 end
