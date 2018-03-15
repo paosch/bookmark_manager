@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/link'
+require './database_connection_setup'
 
 class BookmarkManager < Sinatra::Base
 get '/' do
@@ -7,12 +8,8 @@ get '/' do
   erb :index
 end
 
-get '/add-a-new-link' do # needed this route to go to the add-url page when Add button was clicked
-  erb :add_link # staying in this route until I click something to go to another page
-end
-
 post '/create-new-link' do # the / mentioned here is not a page!
-  Link.add_link(url: params['url'])
+  Link.add_link(params['url']) # params is what the user entered
   redirect '/'
 end
 

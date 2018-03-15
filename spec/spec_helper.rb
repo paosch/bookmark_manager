@@ -1,3 +1,8 @@
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
 ENV['ENVIRONMENT'] = 'test'
 
 RSpec.configure do |config|
@@ -8,11 +13,7 @@ end
 
 
 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
-require 'capybara'
-require 'capybara/rspec'
-require 'rspec'
 
 Capybara.app = BookmarkManager
 
