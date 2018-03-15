@@ -12,4 +12,13 @@ feature 'Adding links' do
     click_on 'Submit'
     expect(page).to have_content 'http://www.eldia.com'
   end
+
+  scenario 'The link must be a valid URL' do
+    visit('/')
+    fill_in('url', with: 'not a real link')
+    click_button('Submit')
+
+    expect(page).not_to have_content "not a real link"
+    expect(page).to have_content "You must submit a valid URL."
+  end
 end
