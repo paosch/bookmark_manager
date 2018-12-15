@@ -1,8 +1,8 @@
-# frozen_string_literal: true
+
 
 source "https://rubygems.org"
 
-gem 'sinatra'
+gem "sinatra", ">= 2.0.2"
 gem 'rspec'
 gem 'capybara'
 gem 'pg'
